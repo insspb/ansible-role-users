@@ -7,7 +7,7 @@
     gid:    "{{ item.gid|default(omit) }}"
   with_items: "{{ users_add_groups }}
 
-- name: Users | Groups | Removing groups to remote system
+- name: Users | Groups | Removing groups from remote system
   group: 
     name:   "{{ item.name }}"
     system: "{{ item.system|default(false)|bool }}"
