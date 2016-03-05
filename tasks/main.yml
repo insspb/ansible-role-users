@@ -1,2 +1,6 @@
 ---
-# tasks file for insspb.users
+include groups.yml
+
+include users.yml
+
+include keys.yml
