@@ -1,2 +1,5 @@
 ---
-# defaults file for insspb.users
+users_add_groups: []
+users_add_users: []
+users_remove_groups: []
+users_remove_users: []
