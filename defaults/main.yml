@@ -3,3 +3,17 @@ users_add_groups: []
 users_add_users: []
 users_remove_groups: []
 users_remove_users: []
+
+users_add_users_default_createhome: True
+users_add_users_default_system: False
+users_add_users_default_groups: []
+users_add_users_default_shell: "/bin/bash"
+users_add_users_default_ssh_key_bits: "2048"
+users_add_users_default_ssh_key_comment: "Fresh generated key"
+users_add_users_default_ssh_key_file: ".ssh/id_rsa"
+users_add_users_default_ssh_key_passphrase: ""
+users_add_users_default_ssh_key_type: "rsa"
+users_add_users_default_update_password: "always"
+users_add_users_default_move_home: True
+users_add_users_default_generate_ssh_key: False
+users_add_users_default_append: False
