@@ -1,6 +1,14 @@
 ---
 - include_vars: "os_{{ ansible_os_family }}.yml"
 
+
+- name: Users | SFTP | Additing new SFTP group to remote system
+  group:
+    name:   "{{ users_sftp_group_name}}"
+    system: True
+    state:  "present"
+  when: "{{ users_sftp_enabled }} == True"
+
 - name: Users | SFTP | Create sftp users root directory
   file:
     path: "{{ users_sftp_home_partition }}"
