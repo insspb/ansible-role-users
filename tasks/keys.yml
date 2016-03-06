@@ -14,8 +14,8 @@
 
 - name: Users | Keys | Creating remote SSH keys for users
   authorized_key:
-    user: "{{item.0.name}}"
-    key:  "{{item.1}}"
+    user: "{{ item.0.name }}"
+    key:  "{{ item.1 }}"
     exclusive: "{{item.0.exclusive | default(false) }}"
   with_subelements:
     - "{{ users_add_users }}"
