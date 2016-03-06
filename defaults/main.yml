@@ -27,3 +27,4 @@ users_add_users_default_append: False
 
 users_sftp_enabled: False
 users_sftp_group_name: sftpgroup
+users_sftp_home_partition: "/sftp"
