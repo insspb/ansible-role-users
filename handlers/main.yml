@@ -1,12 +1,7 @@
 ---
-- name: Users | Handlers | Restart SSHD
-  service: 
-    name:  sshd
-    state: restarted
-  when: ansible_os_family == "RedHat"
+- include_vars: "os_{{ ansible_os_family }}.yml"
 
 - name: Users | Handlers | Restart SSHD
   service: 
-    name:  ssh
+    name:  "{{ sshd_service_name }}"
     state: restarted
-  when: ansible_os_family == "Debian"
