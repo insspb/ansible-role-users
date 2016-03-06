@@ -3,7 +3,7 @@
     name:   "{{ item.name }}"
     state:  "absent"
     force:  "yes"
-    remove: "remove"
+    remove: "yes"
     uid:    "{{ item.uid|default(omit) }}"
   with_items: "{{ users_remove_users }}"
 
