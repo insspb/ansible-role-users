@@ -10,7 +10,19 @@
 - name: Users | Groups | Removing groups from remote system
   group: 
     name:   "{{ item.name }}"
-    system: "{{ item.system|default(false)|bool }}"
     state:  "absent"
     gid:    "{{ item.gid|default(omit) }}"
   with_items: "{{ users_remove_groups }}"
+
+- name: Users | Groups | Additing new SFTP group to remote system
+  group:
+    name:   "{{ users_sftp_group_name}}"
+    system: True
+    state:  "present"
+  when: "{{ users_sftp_enabled }} == True"
+
+- name: Users | Groups | Removing SFTP group from remote system
+  group:
+    name:   "{{ users_sftp_group_name }}"
+    state:  "absent"
+  when: "{{ users_sftp_enabled }} == False"
