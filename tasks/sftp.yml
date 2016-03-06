@@ -15,7 +15,7 @@
     state: directory
     owner: root
     group: "{{ users_sftp_group_name }}"
-    mode:  "0751"
+    mode:  "0750"
     
 - name: Users | SFTP | Registering nologin shell
   lineinfile:
