@@ -3,3 +3,5 @@ sftp_shell_dest:   "/etc/shells"
 sftp_shell_line:   "sbin/nologin"
 sftp_shell_regexp: "^/sbin/nologin"
 sshd_service_name: "sshd"
+sshd_config_file:  "/etc/ssh/sshd_config"
+
