@@ -42,7 +42,7 @@
   user:
     name:               "{{ item.name }}"
     password:           "{{ item.password | default(omit) }}"
-    createhome:         "{{ item.createhome | default(users_sftp_create_home) }}"
+    createhome:         False
     home:               "{{ item.home | default(users_sftp_home_partition + '/' + item.name) }}"
     system:             False
     group:              "{{ item.group | default(omit) }}"
@@ -66,3 +66,26 @@
     update_password:    "{{ item.update_password | default(users_add_users_default_update_password) }}"
   with_items: "{{ users_add_users }}"
   when: "({{ item.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+
+- name: Users | Accounts | Creating SFTP chroot home directories
+  file:
+    path: "{{ item.home | default(users_sftp_home_partition + '/' + item.name) }}"
+    state: directory
+    owner: root
+    group: "{{ users_sftp_group_name }}"
+    mode:  "0750"
+  with_items: "{{ users_add_users }}"
+  when: "({{ item.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+
+- name: Users | Accounts | Creating SFTP chroot home directories
+  file:
+    path: "{{ item.0.home | default(users_sftp_home_partition + '/' + item.0.name) }}/{{ item.1 }}"
+    state: directory
+    owner: "{{ item.0.name }}"
+    group: "{{ users_sftp_group_name }}"
+    mode:  "0750"
+  with_nested: 
+    - "{{ users_add_users }}"
+    - "{{ users_sftp_directories }}"
+  when: "({{ item.0.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+
