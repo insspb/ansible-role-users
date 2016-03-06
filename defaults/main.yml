@@ -47,7 +47,7 @@ users_sshd_password_authentication: "no"
 users_sshd_kerberosauthentication: "no"
 users_sshd_kerberosorlocalpasswd: "yes"
 users_sshd_kerberosticketcleanup: "yes"
-users_sshd_kerberosusekuserok: "yes"
+users_sshd_kerberosusekuserok: "no"
 users_sshd_gssapiauthentication: "no"
 users_sshd_gssapicleanupcredentials: "yes"
 users_sshd_allow_users: []

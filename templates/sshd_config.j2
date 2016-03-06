@@ -100,8 +100,8 @@ Subsystem sftp internal-sftp
 UsePAM                          {{ users_sshd_use_pam }}
 UseDNS                          {{ users_sshd_use_dns }}
 
-{% if users_sftp_enabled == "True" %}
-Match Group {{ users_sftp_group_nameusers_sftp_group_namep }}
+{% if users_sftp_enabled == True %}
+Match Group {{ users_sftp_group_name }}
         ChrootDirectory {{ users_sftp_home_partition }}/%u
         ForceCommand internal-sftp
         AllowTcpForwarding no
