@@ -1,2 +1,12 @@
 ---
-# handlers file for insspb.users
+- name: Users | Handlers | Restart SSHD
+  service: 
+    name:  sshd
+    state: restarted
+  when: ansible_os_family == "RedHat"
+
+- name: Users | Handlers | Restart SSHD
+  service: 
+    name:  ssh
+    state: restarted
+  when: ansible_os_family == "Debian"
