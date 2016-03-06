@@ -24,3 +24,6 @@ users_add_users_default_update_password: "always"
 users_add_users_default_move_home: True
 users_add_users_default_generate_ssh_key: False
 users_add_users_default_append: False
+
+users_sftp_enabled: False
+users_sftp_group_name: sftpgroup
