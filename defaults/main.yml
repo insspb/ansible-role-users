@@ -80,6 +80,6 @@ users_sftp_create_home: True
 users_sftp_create_dirs: True
 users_sftp_home_partition: "/sftp"
 users_sftp_unix_home_mode: "0750"
-users_sftp_default_dirs:
-    - "Upload"
-    - "Download"
+users_sftp_directories:
+    - "upload"
+    - "download"
