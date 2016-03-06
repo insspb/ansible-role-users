@@ -1,6 +1,10 @@
 ---
+- include: sshd.yml
+  when: "{{ users_sshd_config }} == True"
+
 - include: sftp.yml
-  when: "{{ users_sftp_enabled }} == True"
+  when: "{{ users_sftp_enabled }} == True
+  and {{ users_sshd_config }} == True"
 
 - include: groups.yml
 
