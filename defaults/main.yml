@@ -5,6 +5,9 @@ users_remove_groups: []
 users_remove_users: []
 
 users_remove_authorized_keys: False
+
+users_root_keys: []
+
 users_loop_flags:
     skip_missing: True
 
