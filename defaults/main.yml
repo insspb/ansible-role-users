@@ -25,6 +25,61 @@ users_add_users_default_move_home: True
 users_add_users_default_generate_ssh_key: False
 users_add_users_default_append: False
 
+users_sshd_config: True
+users_sshd_port: "22"
+users_sshd_addressfamily: "any"
+users_sshd_listen_address: "0.0.0.0"
+users_sshd_protocol: "2"
+users_sshd_syslog_facility: "AUTH"
+users_sshd_log_level: "INFO"
+users_sshd_use_privilege_seperation: "yes"
+users_sshd_key_regeneration_interval: 3600
+users_sshd_server_key_bits: "2048"
+users_sshd_login_grace_time: "120"
+users_sshd_permit_root_login: "yes"
+users_sshd_strict_modes: "yes"
+users_sshd_maxauthtries: "3"
+users_sshd_maxsessions: "15"
+users_sshd_rsa_authentication: "yes"
+users_sshd_pubkey_authentication: "yes"
+users_sshd_authorized_keys_file: "%h/.ssh/authorized_keys"
+users_sshd_password_authentication: "no"
+users_sshd_kerberosauthentication: "no"
+users_sshd_kerberosorlocalpasswd: "yes"
+users_sshd_kerberosticketcleanup: "yes"
+users_sshd_kerberosusekuserok: "yes"
+users_sshd_gssapiauthentication: "no"
+users_sshd_gssapicleanupcredentials: "yes"
+users_sshd_allow_users: []
+users_sshd_allow_groups: []
+users_sshd_ignore_rhosts: "yes"
+users_sshd_rhosts_rsa_authentication: "no"
+users_sshd_hostbased_authentication: "no"
+users_sshd_ignoreuserknownhosts: "no"
+users_sshd_permit_empty_passwords: "no"
+users_sshd_challenge_response_authentication: "no"
+users_sshd_x11_forwarding: "no"
+users_sshd_x11_display_offset: 10
+users_sshd_print_motd: "no"
+users_sshd_print_last_log: "yes"
+users_sshd_tcp_keep_alive: "yes"
+users_sshd_max_startups: "10:30:60"
+users_sshd_banner: "/etc/issue.net"
+users_sshd_acceptenv: "LANG LC_*"
+users_sshd_client_alive_interval: 3600
+users_sshd_client_alive_count_max: 0
+users_sshd_use_pam: "yes"
+users_sshd_use_dns: "no"
+users_sshd_extra: ""
+
 users_sftp_enabled: False
 users_sftp_group_name: sftpgroup
+users_sftp_users_default_groups:
+    - "sftpgroup"
+users_sftp_create_home: True
+users_sftp_create_dirs: True
 users_sftp_home_partition: "/sftp"
+users_sftp_unix_home_mode: "0750"
+users_sftp_default_dirs:
+    - "Upload"
+    - "Download"
