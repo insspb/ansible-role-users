@@ -1,0 +1,18 @@
+---
+- include_vars: "os_{{ ansible_os_family }}.yml"
+
+- name: Users | SFTP | Create sftp users root directory
+  file:
+    path: "{{ users_sftp_home_partition }}"
+    state: directory
+    owner: root
+    group: "{{ users_sftp_group_name }}"
+    mode:  "0751"
+    
+- name: Users | SFTP | Registering nologin shell
+  lineinfile:
+    state:  present
+    dest:   "{{ sftp_shell_dest }}"
+    line:   "{{ sftp_shell_line }}"
+    regexp: "{{ sftp_shell_regexp }}"
+    insertafter: EOF
