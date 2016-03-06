@@ -1,0 +1,16 @@
+- name: Users | Keys | Removing current keys file
+  file:
+    path:     "/home/{{ item.name }}/.ssh/authorized_keys"
+    state:    absent
+  with_items: "{{ users_add_users }}"
+  when: "{{ users_remove_authorized_keys }}"
+
+- name: Users | Keys | Creating remote SSH keys for user
+  skip_missing: True
+  authorized_key:
+    user: "{{item.0.name}}"
+    key: "{{item.1}}"
+    exclusive: no
+  with_subelements:
+    - "{{ users_add_users }}"
+    - keys
