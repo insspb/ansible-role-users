@@ -5,6 +5,8 @@ users_remove_groups: []
 users_remove_users: []
 
 users_remove_authorized_keys: False
+users_loop_flags:
+    skip_missing: True
 
 users_add_users_default_createhome: True
 users_add_users_default_system: False
