@@ -18,7 +18,7 @@
     system:             "{{ item.system | default(users_add_users_default_system) }}"
     group:              "{{ item.group | default(omit) }}"
     groups:             "{{ item.groups | default(users_add_users_default_groups) | join(',') }}"
-    state:              "present"
+    state:              "{{ item.state | default('present') }}"
     shell:              "{{ item.shell | default(users_add_users_default_shell) }}"
     uid:                "{{ item.uid | default(omit) }}"
     comment:            "{{ item.comment | default(omit) }}"

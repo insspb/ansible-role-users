@@ -16,9 +16,11 @@
   authorized_key:
     user: "{{ item.0.name }}"
     key:  "{{ lookup('file', '{{ item.1 }}') }}"
-    exclusive: "{{item.0.exclusive | default(false) }}"
+    exclusive: "{{ item.0.exclusive | default(false) }}"
+  when: ( item.0.state != 'absent')
+        or ( item.0.state is undefined)
   with_subelements:
     - "{{ users_add_users }}"
     - keys
     - "{{ users_loop_flags }}"
-
+  ignore_errors: yes
