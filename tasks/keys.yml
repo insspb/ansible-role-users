@@ -3,14 +3,16 @@
     path:     "/home/{{ item.name }}/.ssh/authorized_keys"
     state:    absent
   with_items: "{{ users_add_users }}"
-  when: "{{ users_remove_authorized_keys }}"
+  when:
+    - users_remove_authorized_keys
 
 - name: Users | Keys | Creating remote SSH keys for root
   authorized_key:
     user: "root"
     key:  "{{ item }}"
   with_file: "{{ users_root_keys }}"
-  when: "{{ users_root_keys }}"
+  when:
+    - users_root_keys
 
 - name: Users | Keys | Creating remote SSH keys for users
   authorized_key:

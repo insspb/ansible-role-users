@@ -36,7 +36,8 @@
     ssh_key_type:       "{{ item.ssh_key_type | default(users_add_users_default_ssh_key_type) }}"
     update_password:    "{{ item.update_password | default(users_add_users_default_update_password) }}"
   with_items: "{{ users_add_users }}"
-  when: "{{ item.sftpuser | default(False) }} == False"
+  when:
+    - item.sftpuser | default(False) == False
 
 - name: Users | Accounts | Creating SFTP accounts on remote system
   user:
@@ -65,7 +66,9 @@
     ssh_key_type:       "{{ item.ssh_key_type | default(users_add_users_default_ssh_key_type) }}"
     update_password:    "{{ item.update_password | default(users_add_users_default_update_password) }}"
   with_items: "{{ users_add_users }}"
-  when: "({{ item.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+  when:
+    - item.sftpuser | default(False) == True
+    - users_sftp_enabled == True
 
 - name: Users | Accounts | Creating SFTP chroot home directories
   file:
@@ -75,7 +78,9 @@
     group: "{{ users_sftp_group_name }}"
     mode:  "0750"
   with_items: "{{ users_add_users }}"
-  when: "({{ item.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+  when:
+    - item.sftpuser | default(False) == True
+    - users_sftp_enabled == True
 
 - name: Users | Accounts | Creating SFTP chroot home directories
   file:
@@ -84,8 +89,10 @@
     owner: "{{ item.0.name }}"
     group: "{{ users_sftp_group_name }}"
     mode:  "0750"
-  with_nested: 
+  with_nested:
     - "{{ users_add_users }}"
     - "{{ users_sftp_directories }}"
-  when: "({{ item.0.sftpuser | default(False) }} == True ) and ({{ users_sftp_enabled }} == True )"
+  when:
+    - item.0.sftpuser | default(False) == True
+    - users_sftp_enabled == True
 

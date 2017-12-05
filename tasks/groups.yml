@@ -1,6 +1,6 @@
 ---
 - name: Users | Groups | Additing new groups to remote system
-  group: 
+  group:
     name:   "{{ item.name }}"
     system: "{{ item.system | default(false) | bool }}"
     state:  "present"
@@ -8,7 +8,7 @@
   with_items: "{{ users_add_groups }}"
 
 - name: Users | Groups | Removing groups from remote system
-  group: 
+  group:
     name:   "{{ item.name }}"
     state:  "absent"
     gid:    "{{ item.gid | default(omit) }}"
@@ -18,4 +18,5 @@
   group:
     name:   "{{ users_sftp_group_name }}"
     state:  "absent"
-  when: "{{ users_sftp_enabled }} == False"
+  when:
+    - users_sftp_enabled == False

@@ -7,7 +7,8 @@
     name:   "{{ users_sftp_group_name}}"
     system: True
     state:  "present"
-  when: "{{ users_sftp_enabled }} == True"
+  when:
+    - users_sftp_enabled == True
 
 - name: Users | SFTP | Create sftp users root directory
   file:
@@ -16,7 +17,7 @@
     owner: root
     group: "{{ users_sftp_group_name }}"
     mode:  "0750"
-    
+
 - name: Users | SFTP | Registering nologin shell
   lineinfile:
     state:  present
