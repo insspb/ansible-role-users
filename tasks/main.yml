@@ -1,14 +1,15 @@
 ---
-- include: sshd.yml
-  when: "{{ users_sshd_config }} == True"
+- include_tasks: sshd.yml
+  when:
+    - users_sshd_config == True
 
-- include: sftp.yml
-  when: "{{ users_sftp_enabled }} == True
-  and {{ users_sshd_config }} == True"
+- include_tasks: sftp.yml
+  when:
+    - users_sftp_enabled == True
+    - users_sshd_config == True
 
-- include: groups.yml
+- include_tasks: groups.yml
 
-- include: users.yml
+- include_tasks: users.yml
 
-- include: keys.yml
-
+- include_tasks: keys.yml
