@@ -1,9 +1,9 @@
 galaxy_info:
   author: Andrey Shpak
-  description: Role to configure lunx users on different systems.
+  description: Role to configure Linux users on different systems.
   license: license (MIT)
-  
-  min_ansible_version: 2.0
+
+  min_ansible_version: 2.4.0
   github_branch: master
   platforms:
   - name: EL
@@ -15,8 +15,8 @@ galaxy_info:
   - name: Debian
     versions:
     - all
-  
-  galaxy_tags: 
+
+  galaxy_tags:
      - users
      - access
      - system
