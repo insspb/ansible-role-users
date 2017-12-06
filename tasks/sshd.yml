@@ -5,4 +5,5 @@
   template:
     src: sshd_config.j2
     dest: "{{ sshd_config_file }}"
+    backup: yes
   notify: "Users | Handlers | Restart SSHD"
