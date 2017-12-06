@@ -2,6 +2,7 @@
 - include_vars: "os_{{ ansible_os_family }}.yml"
 
 - name: Users | Handlers | Restart SSHD
-  service: 
+  become: true
+  service:
     name:  "{{ sshd_service_name }}"
     state: restarted

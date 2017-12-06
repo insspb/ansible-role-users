@@ -2,6 +2,7 @@
 - include_vars: "os_{{ ansible_os_family }}.yml"
 
 - name: Users | SSHD | Configuring SSHD
+  become: true
   template:
     src: sshd_config.j2
     dest: "{{ sshd_config_file }}"
