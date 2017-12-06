@@ -1,4 +1,11 @@
 ---
+- name: Users | Groups | Removing groups from remote system
+  group:
+    name:   "{{ item.name }}"
+    state:  "absent"
+    gid:    "{{ item.gid | default(omit) }}"
+  with_items: "{{ users_remove_groups }}"
+
 - name: Users | Groups | Additing new groups to remote system
   group:
     name:   "{{ item.name }}"
@@ -6,13 +13,6 @@
     state:  "present"
     gid:    "{{ item.gid | default(omit) }}"
   with_items: "{{ users_add_groups }}"
-
-- name: Users | Groups | Removing groups from remote system
-  group:
-    name:   "{{ item.name }}"
-    state:  "absent"
-    gid:    "{{ item.gid | default(omit) }}"
-  with_items: "{{ users_remove_groups }}"
 
 - name: Users | Groups | Removing SFTP group from remote system
   group:
