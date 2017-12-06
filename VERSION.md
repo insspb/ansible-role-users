@@ -13,6 +13,7 @@
   - VERSION.md created and contains all development history.
 - Deprecated syntax removed and replaced with syntax from 2.4.0
 - Now this role will do nothing without configuration. So it is totally secure for you systems and playbooks.
+- Now role can be launched under regular user in Ansible with only sudo permissions.
 - Meta file updated.
 
 ### 1.0
