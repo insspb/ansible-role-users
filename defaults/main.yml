@@ -25,7 +25,7 @@ users_add_users_default_move_home: True
 users_add_users_default_generate_ssh_key: False
 users_add_users_default_append: False
 
-users_sshd_config: True
+users_sshd_config: False
 users_sshd_port: "22"
 users_sshd_addressfamily: "any"
 users_sshd_listen_address: "0.0.0.0"
